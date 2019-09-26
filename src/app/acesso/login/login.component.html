@@ -4,20 +4,26 @@
 
     <form [formGroup]="formulario" (ngSubmit)="autenticar()">
       <div class="form-group">
-        <input type="email" class="form-control" formControlName="email" placeholder="E-mail" />
+        <input type="email" pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" class="form-control" formControlName="email" placeholder="E-mail" />
+        <!-- <small *ngIf="formulario.get('email').invalid && formulario.get('email').touched">digite um email válido</small> -->
+
       </div>
       <div class="form-group">
         <input type="password" class="form-control" formControlName="senha" placeholder="Senha" />
-      </div>
+        <small *ngIf="formulario.get('senha').invalid && formulario.get('senha').touched">a senha precisa ter no minimo 6 caracteres</small>
+    </div>
       <button type="submit" class="btn btn-primary btn-sm btn-block">
         Entrar
       </button>
     </form>
     <hr />
 
-    <p class="small text-danger text-center">
+    <p *ngIf="invalidUser" class="small text-danger text-center">
       O nome de usuário inserido não pertence a uma conta. Verifique seu nome de
       usuário e tente novamente.
+    </p>
+    <p *ngIf="invalidPass" class="small text-danger text-center">
+      Senha incorreta, tente novamente.
     </p>
   </div>
 </div>
