@@ -14,7 +14,7 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
   animations: [
     trigger('form-error', [
       transition('initial <=> final', [
-        animate('1000ms 0s ease-in-out', keyframes([
+        animate('1000ms 0s ease', keyframes([
           style({ offset: 0, opacity: 1, transform: 'translateX(0)' }),
           style({ offset: 0.20, opacity: 1, transform: 'translateX(-10px)' }),
           style({ offset: 0.40, opacity: 1, transform: 'translate(10px)' }),
