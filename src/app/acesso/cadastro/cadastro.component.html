@@ -2,18 +2,18 @@
   <div class="card-body">
     <div class="card-title"></div>
 
-    <form>
+    <form [formGroup]="formulario" (ngSubmit)="cadastrarusuario()">
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="E-mail" />
+        <input type="email" class="form-control" formControlName="email" placeholder="E-mail" />
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome completo" />
+        <input type="text" class="form-control" formControlName="nome_completo" placeholder="Nome completo" />
       </div>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Nome de usuário" />
+        <input type="text" class="form-control" formControlName="nome_usuario" placeholder="Nome de usuário" />
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Senha" />
+        <input type="password" class="form-control" formControlName="senha" placeholder="Senha" />
       </div>
       <button type="submit" class="btn btn-primary btn-sm btn-block">
         Cadastre-se
@@ -31,7 +31,7 @@
 <div class="card" style="width: 20rem;">
   <div class="card-body">
     <p class="card-text">
-      Tem uma conta? <a href="#" class="card-link">Faça login</a>
+      Tem uma conta? <a href="#" (click)='exibirPainelLogin($event)' class="card-link">Faça login</a>
     </p>
   </div>
 </div>
