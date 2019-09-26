@@ -4,6 +4,8 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Usuario } from './../usuario.model';
 import { AuthService } from './../../auth.service';
 
+import { ToastService } from './../../shared/toast.service';
+
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -22,9 +24,10 @@ export class CadastroComponent implements OnInit {
 
   usuario: Usuario;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private toastService: ToastService) { }
 
   ngOnInit() {
+
   }
 
 
@@ -41,8 +44,22 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha,
     );
 
-    this.authService.cadastrarUsuario(this.usuario);
-    // console.log(this.usuario)
+    this.authService.cadastrarUsuario(this.usuario)
+      .then(() => {
+        this.toastService.toast.fire({
+          type: 'success',
+          title: 'Cadastrado com sucesso!'
+        });
+        this.exibirPainelLogin()
+      })
+      .catch(() => {
+        this.toastService.toast.fire({
+          type: 'error',
+          title: 'Ocorrou um erro imprevisto'
+        });
+      })
+
+
   }
 
 }
