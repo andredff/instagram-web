@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
       authDomain: "jta-instagram-clone-ffc6c.firebaseapp.com",
       databaseURL: "https://jta-instagram-clone-ffc6c.firebaseio.com",
       projectId: "jta-instagram-clone-ffc6c",
-      storageBucket: "",
+      storageBucket: "jta-instagram-clone-ffc6c.appspot.com",
       messagingSenderId: "454821760364",
       appId: "1:454821760364:web:1c2213ad4c7208132bf749"
     };

@@ -10,6 +10,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { ToastService } from './services/toast.service';
 import { BdService } from './services/bd.service';
+import { ProgressService } from './services/progress.service'
 
 // import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,7 +40,7 @@ import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-pu
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES),
   ],
-  providers: [AuthService, ToastService, AuthGuard, BdService],
+  providers: [AuthService, ToastService, AuthGuard, BdService, ProgressService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
